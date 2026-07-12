@@ -56,5 +56,32 @@ To function correctly, Revive requires the following permissions:
 
 This app is intended for personal backup and educational purposes only. Please respect the privacy of others and adhere to the Terms of Service of the messaging platforms you use. The developers are not responsible for any misuse of this application.
 
----
+---./gradlew assembleDebug
+
+./gradlew installDebug
+
+adb install app\build\outputs\apk\debug\app-debug.apk
+
+
+adb logcat 
+adb kill-server
+adb start-server
+
+./gradlew clean assembleRelease
+
+./gradlew installRelease
+
+./gradlew assembleRelease
+
+
+adb uninstall com.revive.app
+./gradlew clean assembleRelease
+adb install app/build/outputs/apk/release/app-release.apk
+
+
+./gradlew clean
+
+adb uninstall com.revive.app
+adb install app/build/outputs/apk/release/app-release.apk
+adb logcat Revive:D AndroidRuntime:E *:S
 *Built with ❤️ using Jetpack Compose.*
